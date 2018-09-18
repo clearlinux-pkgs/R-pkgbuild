@@ -1,5 +1,5 @@
-1.0.0
-R-rprojroot
+1.0.1
 R-Rcpp
-R-desc
 R-callr
+R-desc
+R-rprojroot
