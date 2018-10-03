@@ -4,17 +4,15 @@
 #
 Name     : R-pkgbuild
 Version  : 1.0.1
-Release  : 2
+Release  : 3
 URL      : https://cran.r-project.org/src/contrib/pkgbuild_1.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pkgbuild_1.0.1.tar.gz
 Summary  : Find Tools Needed to Build R Packages
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
-Requires: R-Rcpp
-Requires: R-callr
-Requires: R-desc
-Requires: R-rprojroot
+Requires: R-assertthat
 BuildRequires : R-Rcpp
+BuildRequires : R-assertthat
 BuildRequires : R-callr
 BuildRequires : R-desc
 BuildRequires : R-rprojroot
@@ -32,11 +30,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537297986
+export SOURCE_DATE_EPOCH=1538580944
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1537297986
+export SOURCE_DATE_EPOCH=1538580944
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

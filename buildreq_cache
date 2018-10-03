@@ -1,5 +1,6 @@
 1.0.1
 R-Rcpp
+R-assertthat
 R-callr
 R-desc
 R-rprojroot
