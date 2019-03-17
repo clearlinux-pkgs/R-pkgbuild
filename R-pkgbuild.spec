@@ -4,7 +4,7 @@
 #
 Name     : R-pkgbuild
 Version  : 1.0.2
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/pkgbuild_1.0.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pkgbuild_1.0.2.tar.gz
 Summary  : Find Tools Needed to Build R Packages
@@ -23,8 +23,10 @@ BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-needed to build R packages on various platforms and ensures the PATH is
-  configured appropriately so R can use them.
+# pkgbuild
+[![Travis-CI Build Status](https://travis-ci.org/r-lib/pkgbuild.svg?branch=master)](https://travis-ci.org/r-lib/pkgbuild)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/r-lib/pkgbuild?branch=master&svg=true)](https://ci.appveyor.com/project/hadley/pkgbuild)
+[![Coverage status](https://codecov.io/gh/r-lib/pkgbuild/branch/master/graph/badge.svg)](https://codecov.io/github/r-lib/pkgbuild?branch=master)
 
 %prep
 %setup -q -c -n pkgbuild
@@ -34,10 +36,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539747238
+export SOURCE_DATE_EPOCH=1552842389
 
 %install
-export SOURCE_DATE_EPOCH=1539747238
+export SOURCE_DATE_EPOCH=1552842389
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -73,8 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library pkgbuild|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  pkgbuild || :
 
 
 %files
@@ -99,21 +100,21 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/pkgbuild/help/pkgbuild.rdx
 /usr/lib64/R/library/pkgbuild/html/00Index.html
 /usr/lib64/R/library/pkgbuild/html/R.css
-/usr/lib64/R/library/testDummy/DESCRIPTION
-/usr/lib64/R/library/testDummy/Meta/Rd.rds
-/usr/lib64/R/library/testDummy/Meta/features.rds
-/usr/lib64/R/library/testDummy/Meta/hsearch.rds
-/usr/lib64/R/library/testDummy/Meta/links.rds
-/usr/lib64/R/library/testDummy/Meta/nsInfo.rds
-/usr/lib64/R/library/testDummy/Meta/package.rds
-/usr/lib64/R/library/testDummy/NAMESPACE
-/usr/lib64/R/library/testDummy/R/testDummy
-/usr/lib64/R/library/testDummy/R/testDummy.rdb
-/usr/lib64/R/library/testDummy/R/testDummy.rdx
-/usr/lib64/R/library/testDummy/help/AnIndex
-/usr/lib64/R/library/testDummy/help/aliases.rds
-/usr/lib64/R/library/testDummy/help/paths.rds
-/usr/lib64/R/library/testDummy/help/testDummy.rdb
-/usr/lib64/R/library/testDummy/help/testDummy.rdx
-/usr/lib64/R/library/testDummy/html/00Index.html
-/usr/lib64/R/library/testDummy/html/R.css
+/usr/lib64/R/library/pkgbuild/tests/build-tools.R
+/usr/lib64/R/library/pkgbuild/tests/testthat.R
+/usr/lib64/R/library/pkgbuild/tests/testthat/test-build-process.r
+/usr/lib64/R/library/pkgbuild/tests/testthat/test-build.r
+/usr/lib64/R/library/pkgbuild/tests/testthat/test-build_tools.R
+/usr/lib64/R/library/pkgbuild/tests/testthat/test-c-registration.R
+/usr/lib64/R/library/pkgbuild/tests/testthat/test-compile_dll.R
+/usr/lib64/R/library/pkgbuild/tests/testthat/test-compiler.R
+/usr/lib64/R/library/pkgbuild/tests/testthat/test-rtools.r
+/usr/lib64/R/library/pkgbuild/tests/testthat/testDummy/DESCRIPTION
+/usr/lib64/R/library/pkgbuild/tests/testthat/testDummy/NAMESPACE
+/usr/lib64/R/library/pkgbuild/tests/testthat/testDummy/R/a.r
+/usr/lib64/R/library/pkgbuild/tests/testthat/testDummy/R/b.r
+/usr/lib64/R/library/pkgbuild/tests/testthat/testWithSrc/DESCRIPTION
+/usr/lib64/R/library/pkgbuild/tests/testthat/testWithSrc/NAMESPACE
+/usr/lib64/R/library/pkgbuild/tests/testthat/testWithSrc/R/a.r
+/usr/lib64/R/library/pkgbuild/tests/testthat/testWithSrc/R/b.r
+/usr/lib64/R/library/pkgbuild/tests/testthat/testWithSrc/src/add1.c
