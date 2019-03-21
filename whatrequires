@@ -2,6 +2,7 @@
 R-brms
 R-pkgload
 R-rcmdcheck
+R-rhub
 R-rstan
 R-rstanarm
 R-shinystan
