@@ -1,5 +1,7 @@
 # This file contains recursive sources that require this package
+R-StanHeaders
 R-brms
+R-devtools
 R-pkgload
 R-rcmdcheck
 R-rhub

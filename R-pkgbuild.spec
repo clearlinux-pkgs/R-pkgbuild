@@ -4,31 +4,37 @@
 #
 Name     : R-pkgbuild
 Version  : 1.0.3
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/pkgbuild_1.0.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pkgbuild_1.0.3.tar.gz
 Summary  : Find Tools Needed to Build R Packages
 Group    : Development/Tools
-License  : GPL-2.0 GPL-3.0
+License  : GPL-3.0
+Requires: R-R6
 Requires: R-Rcpp
 Requires: R-callr
+Requires: R-cli
+Requires: R-crayon
 Requires: R-desc
 Requires: R-prettyunits
-Requires: R-ps
+Requires: R-processx
 Requires: R-rprojroot
+Requires: R-withr
+BuildRequires : R-R6
 BuildRequires : R-Rcpp
 BuildRequires : R-callr
+BuildRequires : R-cli
+BuildRequires : R-crayon
 BuildRequires : R-desc
 BuildRequires : R-prettyunits
-BuildRequires : R-ps
+BuildRequires : R-processx
 BuildRequires : R-rprojroot
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-# pkgbuild
-[![Travis-CI Build Status](https://travis-ci.org/r-lib/pkgbuild.svg?branch=master)](https://travis-ci.org/r-lib/pkgbuild)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/r-lib/pkgbuild?branch=master&svg=true)](https://ci.appveyor.com/project/hadley/pkgbuild)
-[![Coverage status](https://codecov.io/gh/r-lib/pkgbuild/branch/master/graph/badge.svg)](https://codecov.io/github/r-lib/pkgbuild?branch=master)
+needed to build R packages on various platforms and ensures the PATH is
+  configured appropriately so R can use them.
 
 %prep
 %setup -q -c -n pkgbuild
@@ -37,13 +43,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1553190859
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562206139
 
 %install
-export SOURCE_DATE_EPOCH=1553190859
+export SOURCE_DATE_EPOCH=1562206139
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -72,12 +78,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  pkgbuild || :
+R CMD check --no-manual --no-examples --no-codoc pkgbuild || :
 
 
 %files
