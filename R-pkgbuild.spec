@@ -4,14 +4,13 @@
 #
 Name     : R-pkgbuild
 Version  : 1.0.8
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/pkgbuild_1.0.8.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pkgbuild_1.0.8.tar.gz
 Summary  : Find Tools Needed to Build R Packages
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-R6
-Requires: R-Rcpp
 Requires: R-callr
 Requires: R-cli
 Requires: R-crayon
@@ -20,7 +19,6 @@ Requires: R-prettyunits
 Requires: R-rprojroot
 Requires: R-withr
 BuildRequires : R-R6
-BuildRequires : R-Rcpp
 BuildRequires : R-callr
 BuildRequires : R-cli
 BuildRequires : R-crayon
@@ -43,10 +41,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1588872291
+export SOURCE_DATE_EPOCH=1589585275
 
 %install
-export SOURCE_DATE_EPOCH=1588872291
+export SOURCE_DATE_EPOCH=1589585275
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
