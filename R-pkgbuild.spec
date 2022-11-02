@@ -4,7 +4,7 @@
 #
 Name     : R-pkgbuild
 Version  : 1.3.1
-Release  : 47
+Release  : 48
 URL      : https://cran.r-project.org/src/contrib/pkgbuild_1.3.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pkgbuild_1.3.1.tar.gz
 Summary  : Find Tools Needed to Build R Packages
