@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-pkgbuild
-Version  : 1.4.1
-Release  : 53
-URL      : https://cran.r-project.org/src/contrib/pkgbuild_1.4.1.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/pkgbuild_1.4.1.tar.gz
+Version  : 1.4.2
+Release  : 54
+URL      : https://cran.r-project.org/src/contrib/pkgbuild_1.4.2.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/pkgbuild_1.4.2.tar.gz
 Summary  : Find Tools Needed to Build R Packages
 Group    : Development/Tools
 License  : MIT
@@ -47,10 +47,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686756832
+export SOURCE_DATE_EPOCH=1687799462
 
 %install
-export SOURCE_DATE_EPOCH=1686756832
+export SOURCE_DATE_EPOCH=1687799462
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
