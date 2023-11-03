@@ -5,7 +5,7 @@
 #
 Name     : R-pkgbuild
 Version  : 1.4.2
-Release  : 54
+Release  : 55
 URL      : https://cran.r-project.org/src/contrib/pkgbuild_1.4.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/pkgbuild_1.4.2.tar.gz
 Summary  : Find Tools Needed to Build R Packages
