@@ -2,4 +2,5 @@
 R-devtools
 R-pkgload
 R-rcmdcheck
+R-rhub
 R-rstan
